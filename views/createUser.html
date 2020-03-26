@@ -50,15 +50,14 @@
             <a class="nav-link" href="index.html">User List</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="addUser.html">Add User</a>
+            <a class="nav-link" href="createUser.html">Add User</a>
           </li>
         </ul>
       </div>
     </nav>
-
     <div class="container text-center mt-5">
       <h3>User Details</h3>
-      <form action="" method="" id="addUserForm">
+      <form action="" method="" name="addUserForm" id="addUserForm">
         <div class="row">
           <div class="col-md-6">
             <label>User Name</label>
@@ -91,17 +90,17 @@
             />
           </div>
         </div>
-        <div class="row mt-3">
+        <div class="row">
           <div class="col-md-6">
             <label>Gender</label>
-
             <div class="row">
               <div class="col-md-6">
                 <input
                   type="radio"
                   class="form-check-input"
                   name="gender"
-                  value="Male"
+                  value="male"
+                  id="male"
                 />Male
               </div>
               <div class="col-md-6">
@@ -110,6 +109,7 @@
                   class="form-check-input"
                   name="gender"
                   value="Female"
+                  id="Female"
                 />Female
               </div>
             </div>
@@ -128,13 +128,20 @@
         <div class="row">
           <div class="col-md-6">
             <label>Country Code</label>
-            <input
+            <!-- <input
               type="number"
               class="form-control"
               name="countrycode"
               required
               maxlength="2"
-            />
+            /> -->
+            <input class="form-control" name="countrycode" list="countries" />
+            <datalist id="countries">
+              <option value="91">Detroit Lions</option>
+              <option value="92">Detroit Pistons</option>
+              <option value="93">Detroit Red Wings</option>
+              <option value="94">Detroit Tigers</option>
+            </datalist>
           </div>
           <div class="col-md-6">
             <label>Contact Number</label>
@@ -213,8 +220,6 @@
         </div>
       </form>
     </div>
-    <script></script>
-
     <!-- JQuery -->
     <script
       type="text/javascript"
@@ -235,5 +240,7 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/js/mdb.min.js"
     ></script>
+    <script src="./js/adduser.js"></script>
+    <script src="./js/tata.js"></script>
   </body>
 </html>

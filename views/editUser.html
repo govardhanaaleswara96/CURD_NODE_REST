@@ -50,15 +50,14 @@
             <a class="nav-link" href="index.html">User List</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="addUser.html">Add User</a>
+            <a class="nav-link" href="createUser.html">Add User</a>
           </li>
         </ul>
       </div>
     </nav>
-
     <div class="container text-center mt-5">
       <h3>User Details</h3>
-      <form action="" method="" id="addUserForm">
+      <form action="" method="" name="editUserForm" id="editUserForm">
         <div class="row">
           <div class="col-md-6">
             <label>User Name</label>
@@ -91,17 +90,17 @@
             />
           </div>
         </div>
-        <div class="row mt-3">
+        <div class="row">
           <div class="col-md-6">
             <label>Gender</label>
-
             <div class="row">
               <div class="col-md-6">
                 <input
                   type="radio"
                   class="form-check-input"
                   name="gender"
-                  value="Male"
+                  value="male"
+                  id="male"
                 />Male
               </div>
               <div class="col-md-6">
@@ -110,22 +109,11 @@
                   class="form-check-input"
                   name="gender"
                   value="Female"
+                  id="Female"
                 />Female
               </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <label>Password</label>
-            <input
-              type="password"
-              class="form-control"
-              name="password"
-              required
-              maxlength="15"
-            />
-          </div>
-        </div>
-        <div class="row">
           <div class="col-md-6">
             <label>Country Code</label>
             <input
@@ -136,6 +124,8 @@
               maxlength="2"
             />
           </div>
+        </div>
+        <div class="row">
           <div class="col-md-6">
             <label>Contact Number</label>
             <input
@@ -146,30 +136,6 @@
               maxlength="10"
             />
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label>Skills</label>
-            <textarea
-              class="form-control"
-              cols="5"
-              rows="3"
-              name="skills"
-              required
-            ></textarea>
-          </div>
-          <div class="col-md-6">
-            <label>Address</label>
-            <textarea
-              class="form-control"
-              cols="5"
-              rows="3"
-              name="address"
-              required
-            ></textarea>
-          </div>
-        </div>
-        <div class="row">
           <div class="col-md-6">
             <label>Pin code</label>
             <input
@@ -180,41 +146,108 @@
               maxlength="10"
             />
           </div>
-          <div class="col-md-6">
-            <label>Location</label>
-            <div class="row">
-              <div class="col-md-6">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="location"
-                  id="long"
-                  required
-                  maxlength="15"
-                />
-              </div>
-              <div class="col-md-6">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="lat"
-                  name="location"
-                  required
-                  maxlength="15"
-                />
-              </div>
-            </div>
-          </div>
         </div>
         <div class="row">
-          <div class="col-md-12 mt-3">
-            <button class="btn btn-info btn-lg ">Edit User</button>
+          <div class="col-md-6">
+            <label>Address</label>
+            <textarea
+              class="form-control"
+              cols="5"
+              rows="3"
+              name="address"
+              required
+            ></textarea>
+          </div>
+          <div class="col-md-6">
+            <label>Skills</label>
+            <textarea
+              class="form-control"
+              cols="5"
+              rows="3"
+              name="skills"
+              required
+            ></textarea>
           </div>
         </div>
       </form>
+      <div class="row mt-3">
+        <div class="col-md-4 ">
+          <button
+            class="btn btn-success btn-lg"
+            data-toggle="modal"
+            data-target="#basicExampleModal"
+          >
+            Update Password
+          </button>
+        </div>
+        <div class="col-md-4 ">
+          <button class="btn btn-info btn-lg updateUser">Update User</button>
+        </div>
+        <div class="col-md-4 ">
+          <button class="btn btn-default btn-lg updateLocation">
+            Update Location
+          </button>
+        </div>
+      </div>
     </div>
-    <script></script>
 
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="basicExampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Password Changes</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form name="updatePasswordForm" id="updatePasswordForm">
+            <div class="modal-body">
+              <div class="form-group">
+                <input
+                  type="oldPassword"
+                  class="form-control"
+                  placeholder="Enter Old Password"
+                  name="oldPassword"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="newPassword"
+                  class="form-control"
+                  placeholder="Enter New Password"
+                  name="password"
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary update-password">
+                Update Password
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
     <!-- JQuery -->
     <script
       type="text/javascript"
@@ -235,5 +268,7 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/js/mdb.min.js"
     ></script>
+    <script src="./js/edituser.js"></script>
+    <script src="./js/tata.js"></script>
   </body>
 </html>
